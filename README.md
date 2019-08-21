@@ -18,7 +18,7 @@ exports.addData = functions.https.onRequest(async (req, res) => {
 });
 ```
 
-2. Read Date
+2. Read Data
 ```js
 exports.readData = functions.https.onRequest(async (req, res) => {
   const params = req.query;
@@ -30,7 +30,7 @@ exports.readData = functions.https.onRequest(async (req, res) => {
 });
 ```
 
-3. Update Date
+3. Update Data
 ```js
 exports.updateData = functions.https.onRequest(async (req, res) => {
   const params = req.query;
