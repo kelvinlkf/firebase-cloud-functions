@@ -6,7 +6,7 @@ Please follow the link to setup your project if you have not created one yet. ht
 <br>
 # Sample Codes
 1. Add Data
-```nodejs
+```js
 exports.addData = functions.https.onRequest(async (req, res) => {
   const params = req.query;
 
@@ -19,7 +19,7 @@ exports.addData = functions.https.onRequest(async (req, res) => {
 ```
 
 2. Read Date
-```nodejs
+```js
 exports.readData = functions.https.onRequest(async (req, res) => {
   const params = req.query;
 
@@ -31,7 +31,7 @@ exports.readData = functions.https.onRequest(async (req, res) => {
 ```
 
 3. Update Date
-```nodejs
+```js
 exports.updateData = functions.https.onRequest(async (req, res) => {
   const params = req.query;
 
@@ -44,7 +44,7 @@ exports.updateData = functions.https.onRequest(async (req, res) => {
 ```
 
 4. Delete Data
-```nodejs
+```js
 exports.deleteData = functions.https.onRequest(async (req, res) => {
   const params = req.query;
 
