@@ -53,3 +53,11 @@ exports.deleteData = functions.https.onRequest(async (req, res) => {
   res.status(200).send('{"Success": "1"}');
 });
 ```
+
+5. Send Email
+<br>
+To send email via cloud functions, you need to install dependancies to work correctly. First, we will install the cors package to allow cross platform operations<br>
+```
+npm install nodemailer cors
+```
+
