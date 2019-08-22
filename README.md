@@ -115,7 +115,30 @@ Next, we will deploy the function and run the testing by calling the link using 
 https://<firebase-project-id-link>/sendMail?dest=<user-target-email>
 ```
 
-# Cloud Functions Trigger Background Process <br> [ Realtime Database ]
+# Cloud Functions Trigger Background Process
+# Authentication
+1. onCreate(), which triggers when new user is added. <br>
+2. onDelete(), which trigger when user is deleted. <br>
+
+Sample Codes
+```js
+//New User Created
+exports.sendWelcomeEmail = functions.auth.user().onCreate((user) => {
+
+  //Accessing User Data
+  const email = user.email; // The email of the user.
+  const displayName = user.displayName; // The display name of the user.
+  
+  // ...
+});
+
+//User Deleted
+exports.sendByeEmail = functions.auth.user().onDelete((user) => {
+  // ...
+});
+```
+
+# Realtime Database
 1. onWrite(), which triggers when data is created, updated, or deleted in the Realtime Database. <br>
 2. onCreate(), which triggers when new data is created in the Realtime Database. <br>
 3. onUpdate(), which triggers when data is updated in the Realtime Database. <br>
