@@ -60,3 +60,57 @@ To send email via cloud functions, you need to install dependancies to work corr
 npm install nodemailer cors
 ```
 
+Next, we need to include the tools in the file as below
+```js
+const nodemailer = require('nodemailer');
+const cors = require('cors')({ origin: true });
+```
+
+After including the tools, let's create a new function in the file
+```js
+exports.sendMail = functions.https.onRequest((req, res) => {
+  // Your Operation Will Go Here
+});
+```
+
+Before adding the send mail operation in the function, we will need to define our email authentication outside the function.
+```js
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'yourgmailaccount@gmail.com',
+        pass: 'yourgmailaccpassword'
+    }
+});
+```
+ Next, let's add in the codes into the function as below
+ ```js
+ exports.sendMail = functions.https.onRequest((req, res) => {
+    cors(req, res, () => {
+      
+        // getting dest email by query string
+        const dest = req.query.dest;
+
+        const mailOptions = {
+            from: 'Your Account Name <yourgmailaccount@gmail.com>', // Something like: Jane Doe <janedoe@gmail.com>
+            to: dest,
+            subject: 'Hello World', // email subject
+            html: `<p style="font-size: 16px;">Good Morning</p>
+            // email content in HTML
+        };
+  
+        // returning result
+        return transporter.sendMail(mailOptions, (erro, info) => {
+            if(erro){
+                return res.send(erro.toString());
+            }
+            return res.send('Sended');
+        });
+    });    
+});
+```
+
+Next, we will deploy the function and run the testing by calling the link using *dest* as the query parameter.
+```
+https://<firebase-project-id-link>/sendMail?dest=<user-target-email>
+```
