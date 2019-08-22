@@ -4,7 +4,7 @@ This project will show you the codes used in firebase cloud functions for Create
 # Setup A Google Firebase Project
 Please follow the link to setup your project if you have not created one yet. https://firebase.google.com/docs/functions/get-started
 <br>
-# Sample Codes
+# CRUD Operations
 1. Add Data
 ```js
 exports.addData = functions.https.onRequest(async (req, res) => {
@@ -54,10 +54,8 @@ exports.deleteData = functions.https.onRequest(async (req, res) => {
 });
 ```
 
-5. Send Email
-<br>
+# Send Email Via Cloud Functions
 To send email via cloud functions, you need to install dependancies to work correctly. First, we will install the cors package to allow cross platform operations
-
 ```
 npm install nodemailer cors
 ```
