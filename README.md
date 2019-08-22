@@ -115,7 +115,7 @@ Next, we will deploy the function and run the testing by calling the link using 
 https://<firebase-project-id-link>/sendMail?dest=<user-target-email>
 ```
 
-# Cloud Functions Trigger Background Process [ Realtime Database ]
+# Cloud Functions Trigger Background Process <br> [ Realtime Database ]
 1. onWrite(), which triggers when data is created, updated, or deleted in the Realtime Database. <br>
 2. onCreate(), which triggers when new data is created in the Realtime Database. <br>
 3. onUpdate(), which triggers when data is updated in the Realtime Database. <br>
